@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Basic App',
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         primarySwatch: Colors.blue,
         useMaterial3: true,
         fontFamily: 'Roboto',
@@ -47,11 +46,12 @@ class MyHomePage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Image.network(
-                      'https://picsum.photos/800/533?random=${index + 1}',
-                      width: 100,
-                      fit: BoxFit.cover,
-                    ),
+                    child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 1,
+                        child: Image.network(
+                          'https://picsum.photos/200/300?random=${index + 1}',
+                          fit: BoxFit.cover,
+                        )),
                   );
                 }, // itemBuilder
               ),
@@ -128,10 +128,12 @@ class MyHomePage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Image.asset(
-                      assetImages[index],
-                      width: 100,
-                      fit: BoxFit.cover,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 1,
+                      child: Image.asset(
+                        assetImages[index],
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   );
                 }, // itemBuilder
